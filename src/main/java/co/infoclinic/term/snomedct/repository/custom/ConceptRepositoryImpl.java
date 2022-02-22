@@ -739,7 +739,7 @@ public class ConceptRepositoryImpl implements ConceptRepositoryCustom {
 				//"  AND C1.ACTIVE = 1 " +
 				") AS C " +
 				"INNER JOIN ( " +
-				"  SELECT D.CONCEPT_ID, D.TERM " +
+				"  SELECT D.CONCEPT_ID, D.TERM " + 
 				"  FROM DESCRIPTION AS D " +
 				"  INNER JOIN ( " +
 				"	 SELECT ID.DESCRIPTION_ID, MAX(ID.EFFECTIVE_TIME) AS MAX_ETIME " +
@@ -753,6 +753,7 @@ public class ConceptRepositoryImpl implements ConceptRepositoryCustom {
 				"    AND D.EFFECTIVE_TIME = GD.MAX_ETIME " +
 				"    AND D.ACTIVE = 1 " +
 				"    AND D.LANGUAGE_CODE = '" + LANG + "' " +
+				"	GROUP BY D.CONCEPT_ID" + // add 2022,2,22 by Yu
 				") AS D " +
 				"ON C.CONCEPT_ID = D.CONCEPT_ID " +
 				"LEFT JOIN ( " +
@@ -826,6 +827,7 @@ public class ConceptRepositoryImpl implements ConceptRepositoryCustom {
 				"  AND D.EFFECTIVE_TIME = GD.MAX_ETIME " +
 				"  AND D.ACTIVE = 1 " +
 				"  AND D.LANGUAGE_CODE = '" + LANG + "' " +
+				"  GROUP BY D.CONCEPT_ID" + // add 2022,2,22 by Yu
 				") AS D " +
 				"ON C.CONCEPT_ID = D.CONCEPT_ID " +
 				"LEFT JOIN ( ";
@@ -897,6 +899,7 @@ public class ConceptRepositoryImpl implements ConceptRepositoryCustom {
 				"  AND D.EFFECTIVE_TIME = GD.MAX_ETIME " +
 				"  AND D.ACTIVE = 1 " +
 				"  AND D.LANGUAGE_CODE = '" + LANG + "' " +
+				"  GROUP BY D.CONCEPT_ID" + // add 2022,2,22 by Yu
 				") AS D " +
 				"ON C.CONCEPT_ID = D.CONCEPT_ID " +
 				"LEFT JOIN ( ";
@@ -961,6 +964,7 @@ public class ConceptRepositoryImpl implements ConceptRepositoryCustom {
 				"  AND D.EFFECTIVE_TIME = GD.MAX_ETIME " +
 				"  AND D.ACTIVE = 1 " +
 				"  AND D.LANGUAGE_CODE = '" + LANG + "' " +
+				"  GROUP BY D.CONCEPT_ID" + // add 2022,2,22 by Yu
 				") AS D " +
 				"ON C.CONCEPT_ID = D.CONCEPT_ID " +
 				"LEFT JOIN ( ";
@@ -1042,6 +1046,7 @@ public class ConceptRepositoryImpl implements ConceptRepositoryCustom {
 				"  AND D.EFFECTIVE_TIME = GD.MAX_ETIME " +
 				"  AND D.ACTIVE = 1 " +
 				"  AND D.LANGUAGE_CODE = '" + LANG + "' " +
+				"  GROUP BY D.CONCEPT_ID" + // add 2022,2,22 by Yu
 				") AS D " +
 				"ON C.CONCEPT_ID = D.CONCEPT_ID " +
 				"LEFT JOIN ( ";
@@ -1124,6 +1129,7 @@ public class ConceptRepositoryImpl implements ConceptRepositoryCustom {
 				"  AND D.EFFECTIVE_TIME = GD.MAX_ETIME " +
 				"  AND D.ACTIVE = 1 " +
 				"  AND D.LANGUAGE_CODE = '" + LANG + "' " +
+				"  GROUP BY D.CONCEPT_ID" + // add 2022,2,22 by Yu
 				") AS D " +
 				"ON C.CONCEPT_ID = D.CONCEPT_ID " +
 				"LEFT JOIN ( " +
