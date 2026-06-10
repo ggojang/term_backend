@@ -1,0 +1,76 @@
+The SNOMED CT General Dentistry package is provided in RF2 format, and is delivered to IHTSDO Member National Centers and authorised Affiliate Licensees via Internet download.
+
+The SNOMED CT files are designed as relational tables with each line in the file representing a row in the table. The first row of each table contains column headings. All other rows contain data.
+
+This package is dependent upon the SNOMED CT July 2025 International Edition, and so should be consumed and analysed accordingly.
+
+The RF2 package convention dictates that the package contain all relevant files, regardless of whether or not there is content to be included in each particular release.  Therefore, the package contains a mixture of a) files which contain both header rows and content data, and b) files that are intentionally left blank (with just a header record).  This allows users to easily distinguish between files that have purposefully been removed from the package, as otherwise if files were left out of the package it could be interpreted as an error, rather than an intentional lack of content in that release.
+
+© International Health Terminology Standards Development Organisation 2002-2025.  All rights reserved.  SNOMED CT® was originally created by the College of American Pathologists.  "SNOMED" and "SNOMED CT" are registered trademarks of International Health Terminology Standards Development Organisation, trading as SNOMED International.
+
+SNOMED CT has been created by combining SNOMED RT and a computer based nomenclature and classification known as Clinical Terms Version 3, formerly known as Read Codes Version 3, which was created on behalf of the UK Department of Health and is Crown copyright.
+
+This document forms part of the SNOMED CT® General Dentistry package distributed by SNOMED International, which is subject to SNOMED International’s SNOMED CT® Affiliate License, details of which may be found at http://www.snomed.org/snomed-ct/get-snomed-ct/.
+
+Directory listing:
+
+    SnomedCT_GeneralDentistry_PRODUCTION_20250930T120000Z
+        Snapshot
+            Terminology
+                sct2_Concept_DentistrySnapshot_INT_20250701.txt
+                sct2_Description_DentistrySnapshot-en_INT_20250701.txt
+                sct2_StatedRelationship_DentistrySnapshot_INT_20250701.txt
+                sct2_Relationship_DentistrySnapshot_INT_20250701.txt
+                sct2_RelationshipConcreteValues_DentistrySnapshot_INT_20250701.txt
+                sct2_sRefset_DentistryOWLExpressionSnapshot_INT_20250701.txt
+                sct2_Identifier_DentistrySnapshot_INT_20250701.txt
+                sct2_TextDefinition_DentistrySnapshot-en_INT_20250701.txt
+            Refset
+                Content
+                    der2_Refset_DentistrySimpleSnapshot_INT_20250701.txt
+                    der2_cRefset_DentistryAssociationSnapshot_INT_20250701.txt
+                    der2_cRefset_DentistryAttributeValueSnapshot_INT_20250701.txt
+                Map
+                    der2_sRefset_DentistrySimpleMapSnapshot_INT_20250701.txt
+                Language
+                    der2_cRefset_DentistryLanguageSnapshot-en_INT_20250701.txt
+                Metadata
+                    der2_cciRefset_DentistryRefsetDescriptorSnapshot_INT_20250701.txt
+                    der2_ssRefset_DentistryModuleDependencySnapshot_INT_20250701.txt
+                    der2_ciRefset_DentistryDescriptionTypeSnapshot_INT_20250701.txt
+                    der2_sssssssRefset_DentistryMRCMDomainSnapshot_INT_20250701.txt
+                    der2_cissccRefset_DentistryMRCMAttributeDomainSnapshot_INT_20250701.txt
+                    der2_ssccRefset_DentistryMRCMAttributeRangeSnapshot_INT_20250701.txt
+                    der2_cRefset_DentistryMRCMModuleScopeSnapshot_INT_20250701.txt
+                    der2_scsRefset_DentistryComponentAnnotationStringValueSnapshot_INT_20250701.txt
+                    der2_sscsRefset_DentistryMemberAnnotationStringValueSnapshot_INT_20250701.txt
+        Full
+            Terminology
+                sct2_Concept_DentistryFull_INT_20250701.txt
+                sct2_Description_DentistryFull-en_INT_20250701.txt
+                sct2_StatedRelationship_DentistryFull_INT_20250701.txt
+                sct2_Relationship_DentistryFull_INT_20250701.txt
+                sct2_RelationshipConcreteValues_DentistryFull_INT_20250701.txt
+                sct2_sRefset_DentistryOWLExpressionFull_INT_20250701.txt
+                sct2_Identifier_DentistryFull_INT_20250701.txt
+                sct2_TextDefinition_DentistryFull-en_INT_20250701.txt
+            Refset
+                Content
+                    der2_Refset_DentistrySimpleFull_INT_20250701.txt
+                    der2_cRefset_DentistryAssociationFull_INT_20250701.txt
+                    der2_cRefset_DentistryAttributeValueFull_INT_20250701.txt
+                Map
+                    der2_sRefset_DentistrySimpleMapFull_INT_20250701.txt
+                Language
+                    der2_cRefset_DentistryLanguageFull-en_INT_20250701.txt
+                Metadata
+                    der2_cciRefset_DentistryRefsetDescriptorFull_INT_20250701.txt
+                    der2_ssRefset_DentistryModuleDependencyFull_INT_20250701.txt
+                    der2_ciRefset_DentistryDescriptionTypeFull_INT_20250701.txt
+                    der2_sssssssRefset_DentistryMRCMDomainFull_INT_20250701.txt
+                    der2_cissccRefset_DentistryMRCMAttributeDomainFull_INT_20250701.txt
+                    der2_ssccRefset_DentistryMRCMAttributeRangeFull_INT_20250701.txt
+                    der2_cRefset_DentistryMRCMModuleScopeFull_INT_20250701.txt
+                    der2_scsRefset_DentistryComponentAnnotationStringValueFull_INT_20250701.txt
+                    der2_sscsRefset_DentistryMemberAnnotationStringValueFull_INT_20250701.txt
+        Readme_en_20250701.txt

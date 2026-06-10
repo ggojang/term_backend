@@ -1,0 +1,6 @@
+id	effectiveTime	active	moduleId	conceptId	languageCode	typeId	term	caseSignificanceId
+3311788012	20240701	1	718292005	718292005	en	900000000000003001	International Health Terminology Standards Development Organisation general dentistry diagnostic module (core metadata concept)	900000000000017005
+3311789016	20240701	1	718292005	718292005	en	900000000000013009	International Health Terminology Standards Development Organisation general dentistry diagnostic module	900000000000017005
+3311791012	20240701	1	718292005	718292005	en	900000000000013009	IHTSDO (International Health Terminology Standards Development Organisation) general dentistry diagnostic module	900000000000017005
+3324738019	20240701	1	718292005	721144007	en	900000000000003001	General dentistry diagnostic reference set (foundation metadata concept)	900000000000448009
+3324739010	20240701	1	718292005	721144007	en	900000000000013009	General dentistry diagnostic reference set	900000000000448009

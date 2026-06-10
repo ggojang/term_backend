@@ -1,0 +1,2 @@
+id	effectiveTime	active	moduleId	refsetId	referencedComponentId	attributeDescription	attributeType	attributeOrder
+3f1edc4a-6353-435c-89e0-f894fd829b10	20170131	1	718292005	900000000000456007	721144007	449608002	900000000000461009	0
