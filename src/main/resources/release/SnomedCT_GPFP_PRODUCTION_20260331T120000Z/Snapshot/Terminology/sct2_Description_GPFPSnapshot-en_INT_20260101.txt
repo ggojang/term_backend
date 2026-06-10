@@ -1,0 +1,6 @@
+id	effectiveTime	active	moduleId	conceptId	languageCode	typeId	term	caseSignificanceId
+2920887014	20240101	1	715152001	450970008	en	900000000000013009	General Practice / Family Practice reference set	900000000000020002
+2920949017	20240101	1	715152001	450970008	en	900000000000003001	General Practice / Family Practice reference set (foundation metadata concept)	900000000000020002
+3301348010	20240101	1	715152001	715152001	en	900000000000013009	IHTSDO (International Health Terminology Standards Development Organisation) general and family practitioner module	900000000000017005
+3301383014	20240101	1	715152001	715152001	en	900000000000013009	International Health Terminology Standards Development Organisation general and family practitioner module	900000000000017005
+3301611012	20240101	1	715152001	715152001	en	900000000000003001	International Health Terminology Standards Development Organisation general and family practitioner module (core metadata concept)	900000000000017005

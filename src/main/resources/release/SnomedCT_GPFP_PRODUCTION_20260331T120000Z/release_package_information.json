@@ -1,0 +1,19 @@
+{
+  "effectiveTime": "20260101",
+  "previousPublishedPackage": "SnomedCT_GPFP_PRODUCTION_20250331T120000Z.zip",
+  "licenceStatement": "© 2026 International Health Terminology Standards Development Organisation 2002-2026.  All rights reserved.  SNOMED CT® was originally created by the College of American Pathologists.  'SNOMED' and 'SNOMED CT' are registered trademarks of International Health Terminology Standards Development Organisation, trading as SNOMED International.  SNOMED CT has been created by combining SNOMED RT and a computer based nomenclature and classification known as Clinical Terms Version 3, formerly known as Read Codes Version 3, which was created on behalf of the UK Department of Health and is Crown copyright.  This document forms part of the SNOMED CT® GPFP Refset package distributed by SNOMED International, which is subject to the SNOMED CT® Affiliate License, details of which may be found at  https://www.snomed.org/snomed-ct/get-snomed.",
+  "languageRefsets": [
+    {
+      "id": "900000000000508004",
+      "term": "GB English"
+    },
+    {
+      "id": "900000000000509007",
+      "term": "US English"
+    }
+  ],
+  "packageComposition": {
+    "essentialComponents": {},
+    "optionalComponents": {}
+  }
+}
