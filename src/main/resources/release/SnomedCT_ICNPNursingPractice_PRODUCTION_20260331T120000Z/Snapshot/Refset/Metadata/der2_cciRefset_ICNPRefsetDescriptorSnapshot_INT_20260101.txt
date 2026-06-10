@@ -1,0 +1,2 @@
+id	effectiveTime	active	moduleId	refsetId	referencedComponentId	attributeDescription	attributeType	attributeOrder
+8b58d627-da72-49ce-b70b-72789c335687	20210731	1	1157359004	900000000000456007	1157358007	449608002	900000000000461009	0

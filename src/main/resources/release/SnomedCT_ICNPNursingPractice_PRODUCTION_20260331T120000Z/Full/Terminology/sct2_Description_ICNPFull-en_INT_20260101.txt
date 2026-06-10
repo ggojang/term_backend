@@ -1,0 +1,7 @@
+id	effectiveTime	active	moduleId	conceptId	languageCode	typeId	term	caseSignificanceId
+4580540011	20240101	1	1157359004	1157358007	en	900000000000013009	International Classification for Nursing Practice reference set	900000000000017005
+4580541010	20240101	1	1157359004	1157358007	en	900000000000003001	International Classification for Nursing Practice reference set (foundation metadata concept)	900000000000017005
+4580542015	20240101	1	1157359004	1157358007	en	900000000000013009	ICNP (International Classification for Nursing Practice) reference set	900000000000017005
+4580591014	20240101	1	1157359004	1157359004	en	900000000000013009	International Classification for Nursing Practice module	900000000000017005
+4580592019	20240101	1	1157359004	1157359004	en	900000000000013009	ICNP (International Classification for Nursing Practice) module	900000000000017005
+4580593012	20240101	1	1157359004	1157359004	en	900000000000003001	International Classification for Nursing Practice module (core metadata concept)	900000000000017005
