@@ -75,6 +75,13 @@ public class SnomedDataLoader {
             loadInternational(conn, basePath);
             loadAddonPackages(conn, basePath);
             conn.commit();
+
+            // IS-A 계층 Transitive Closure 계산 및 TC 테이블 적재
+            // (TransitiveClosureGeneratorFromInferred.sh + TransitiveClosureGenerator.java 통합 Java 버전)
+            System.out.println("[INFO] TC (Transitive Closure) 테이블 적재 시작...");
+            TransitiveClosureLoader.load(conn);
+            conn.commit();
+
             System.out.println("[INFO] 모든 데이터 적재 완료.");
         }
     }
