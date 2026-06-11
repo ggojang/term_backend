@@ -1,0 +1,81 @@
+The SNOMED CT ICNP Nursing Practice Refset Production package is provided in RF2 format, and is delivered to IHTSDO Member National Centers and authorised Affiliate Licensees via Internet download.
+
+The SNOMED CT files are designed as relational tables with each line in the file representing a row in the table. The first row of each table contains column headings. All other rows contain data.
+
+This package is dependent upon the SNOMED CT January 2026 International Edition, and so should be consumed and analysed accordingly.
+
+The RF2 package convention dictates that the package contain all relevant files, regardless of whether or not there is content to be included in each particular release.  Therefore, the package contains a mixture of a) files which contain both header rows and content data, and b) files that are intentionally left blank (with just a header record).  This allows users to easily distinguish between files that have purposefully been removed from the package, as otherwise if files were left out of the package it could be interpreted as an error, rather than an intentional lack of content in that release.
+
+© International Health Terminology Standards Development Organisation 2002-2026.  All rights reserved.  SNOMED CT® was originally created by the College of American Pathologists.  "SNOMED" and "SNOMED CT" are registered trademarks of International Health Terminology Standards Development Organisation, trading as SNOMED International.
+
+SNOMED CT has been created by combining SNOMED RT and a computer based nomenclature and classification known as Clinical Terms Version 3, formerly known as Read Codes Version 3, which was created on behalf of the UK Department of Health and is Crown copyright.
+
+This document forms part of the SNOMED CT® ICNP Nursing Practice Refset Production package distributed by SNOMED International, which is subject to SNOMED International’s SNOMED CT® Affiliate License, details of which may be found at http://www.snomed.org/snomed-ct/get-snomed-ct/.
+
+Access within SNOMED International member countries is provided by the national release centre in each country, via the relevant Member page(linked). Affiliates of SNOMED International in non-member countries can access the map through their MLDS account. 
+
+Directory listing:
+
+    SnomedCT_ICNPNursingPractice_PRODUCTION_20260331T120000Z
+        Snapshot
+            Terminology
+                sct2_Concept_ICNPSnapshot_INT_20260101.txt
+                sct2_Description_ICNPSnapshot-en_INT_20260101.txt
+                sct2_StatedRelationship_ICNPSnapshot_INT_20260101.txt
+                sct2_Relationship_ICNPSnapshot_INT_20260101.txt
+                sct2_RelationshipConcreteValues_ICNPSnapshot_INT_20260101.txt
+                sct2_sRefset_OWLExpressionICNPSnapshot_INT_20260101.txt
+                sct2_Identifier_ICNPSnapshot_INT_20260101.txt
+                sct2_TextDefinition_ICNPSnapshot-en_INT_20260101.txt
+            Refset
+                Content
+                    der2_Refset_ICNPSimpleSnapshot_INT_20260101.txt
+                    der2_cRefset_ICNPAssociationSnapshot_INT_20260101.txt
+                    der2_cRefset_ICNPAttributeValueSnapshot_INT_20260101.txt
+                Map
+                    der2_sRefset_ICNPSimpleMapSnapshot_INT_20260101.txt
+                    der2_iisssccRefset_ICNPExtendedMapSnapshot_INT_20260101.txt
+                Language
+                    der2_cRefset_ICNPLanguageSnapshot-en_INT_20260101.txt
+                Metadata
+                    der2_cciRefset_ICNPRefsetDescriptorSnapshot_INT_20260101.txt
+                    der2_ssRefset_ICNPModuleDependencySnapshot_INT_20260101.txt
+                    der2_ciRefset_ICNPDescriptionTypeSnapshot_INT_20260101.txt
+                    der2_sssssssRefset_ICNPMRCMDomainSnapshot_INT_20260101.txt
+                    der2_cissccRefset_ICNPMRCMAttributeDomainSnapshot_INT_20260101.txt
+                    der2_ssccRefset_ICNPMRCMAttributeRangeSnapshot_INT_20260101.txt
+                    der2_cRefset_ICNPMRCMModuleScopeSnapshot_INT_20260101.txt
+                    der2_scsRefset_ICNPComponentAnnotationStringValueSnapshot_INT_20260101.txt
+                    der2_sscsRefset_ICNPMemberAnnotationStringValueSnapshot_INT_20260101.txt
+        Full
+            Terminology
+                sct2_Concept_ICNPFull_INT_20260101.txt
+                sct2_Description_ICNPFull-en_INT_20260101.txt
+                sct2_StatedRelationship_ICNPFull_INT_20260101.txt
+                sct2_Relationship_ICNPFull_INT_20260101.txt
+                sct2_RelationshipConcreteValues_ICNPFull_INT_20260101.txt
+                sct2_sRefset_OWLExpressionICNPFull_INT_20260101.txt
+                sct2_Identifier_ICNPFull_INT_20260101.txt
+                sct2_TextDefinition_ICNPFull-en_INT_20260101.txt
+            Refset
+                Content
+                    der2_Refset_ICNPSimpleFull_INT_20260101.txt
+                    der2_cRefset_ICNPAssociationFull_INT_20260101.txt
+                    der2_cRefset_ICNPAttributeValueFull_INT_20260101.txt
+                Map
+                    der2_sRefset_ICNPSimpleMapFull_INT_20260101.txt
+                    der2_iisssccRefset_ICNPExtendedMapFull_INT_20260101.txt
+                Language
+                    der2_cRefset_ICNPLanguageFull-en_INT_20260101.txt
+                Metadata
+                    der2_cciRefset_ICNPRefsetDescriptorFull_INT_20260101.txt
+                    der2_ssRefset_ICNPModuleDependencyFull_INT_20260101.txt
+                    der2_ciRefset_ICNPDescriptionTypeFull_INT_20260101.txt
+                    der2_sssssssRefset_ICNPMRCMDomainFull_INT_20260101.txt
+                    der2_cissccRefset_ICNPMRCMAttributeDomainFull_INT_20260101.txt
+                    der2_ssccRefset_ICNPMRCMAttributeRangeFull_INT_20260101.txt
+                    der2_cRefset_ICNPMRCMModuleScopeFull_INT_20260101.txt
+                    der2_scsRefset_ICNPComponentAnnotationStringValueFull_INT_20260101.txt
+                    der2_sscsRefset_ICNPMemberAnnotationStringValueFull_INT_20260101.txt
+        Readme_en_20260101.txt
+        release_package_information.json

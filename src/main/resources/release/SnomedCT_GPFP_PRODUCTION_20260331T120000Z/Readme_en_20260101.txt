@@ -1,0 +1,85 @@
+The SNOMED CT GPFP Refset Production package is provided in RF2 format, and is delivered to IHTSDO Member National Centers and authorised Affiliate Licensees via Internet download.
+
+The SNOMED CT files are designed as relational tables with each line in the file representing a row in the table. The first row of each table contains column headings. All other rows contain data.
+
+This package is dependent upon the SNOMED CT January 2026 International Edition, and so should be consumed and analysed accordingly.
+
+The RF2 package convention dictates that the package contain all relevant files, regardless of whether or not there is content to be included in each particular release.  Therefore, the package contains a mixture of a) files which contain both header rows and content data, and b) files that are intentionally left blank (with just a header record).  This allows users to easily distinguish between files that have purposefully been removed from the package, as otherwise if files were left out of the package it could be interpreted as an error, rather than an intentional lack of content in that release.
+
+© International Health Terminology Standards Development Organisation 2002-2026.  All rights reserved.  SNOMED CT® was originally created by the College of American Pathologists.  "SNOMED" and "SNOMED CT" are registered trademarks of International Health Terminology Standards Development Organisation, trading as SNOMED International.
+
+SNOMED CT has been created by combining SNOMED RT and a computer based nomenclature and classification known as Clinical Terms Version 3, formerly known as Read Codes Version 3, which was created on behalf of the UK Department of Health and is Crown copyright.
+
+This document forms part of the SNOMED CT® GP/FP Refset Production package distributed by SNOMED International, which is subject to SNOMED International’s SNOMED CT® Affiliate License, details of which may be found at http://www.snomed.org/snomed-ct/get-snomed-ct/.
+
+Access to the SNOMED CT to ICPC-2 map is provided through a collaboration agreement between WONCA and SNOMED International. 
+
+Access within SNOMED International member countries is provided by the national release centre in each country, via the relevant Member page(linked). Affiliates of SNOMED International in non-member countries can access the map through their MLDS account. 
+
+Users of the map MUST comply with the licensing agreements of both ICPC-2 and SNOMED CT.
+
+Directory listing:
+
+    SnomedCT_GPFP_PRODUCTION_20260331T120000Z
+        Snapshot
+            Terminology
+                sct2_Concept_GPFPSnapshot_INT_20260101.txt
+                sct2_Description_GPFPSnapshot-en_INT_20260101.txt
+                sct2_StatedRelationship_GPFPSnapshot_INT_20260101.txt
+                sct2_Relationship_GPFPSnapshot_INT_20260101.txt
+                sct2_RelationshipConcreteValues_GPFPSnapshot_INT_20260101.txt
+                sct2_sRefset_OWLExpressionGPFPSnapshot_INT_20260101.txt
+                sct2_Identifier_GPFPSnapshot_INT_20260101.txt
+                sct2_TextDefinition_GPFPSnapshot-en_INT_20260101.txt
+            Refset
+                Content
+                    der2_Refset_GPFPSimpleSnapshot_INT_20260101.txt
+                    der2_cRefset_GPFPAssociationSnapshot_INT_20260101.txt
+                    der2_cRefset_GPFPAttributeValueSnapshot_INT_20260101.txt
+                Map
+                    der2_sRefset_GPFPSimpleMapSnapshot_INT_20260101.txt
+                    der2_iisssccRefset_GPFPExtendedMapSnapshot_INT_20260101.txt
+                Language
+                    der2_cRefset_GPFPLanguageSnapshot-en_INT_20260101.txt
+                Metadata
+                    der2_cciRefset_GPFPRefsetDescriptorSnapshot_INT_20260101.txt
+                    der2_ssRefset_GPFPModuleDependencySnapshot_INT_20260101.txt
+                    der2_ciRefset_GPFPDescriptionTypeSnapshot_INT_20260101.txt
+                    der2_sssssssRefset_GPFPMRCMDomainSnapshot_INT_20260101.txt
+                    der2_cissccRefset_GPFPMRCMAttributeDomainSnapshot_INT_20260101.txt
+                    der2_ssccRefset_GPFPMRCMAttributeRangeSnapshot_INT_20260101.txt
+                    der2_cRefset_GPFPMRCMModuleScopeSnapshot_INT_20260101.txt
+                    der2_scsRefset_GPFPComponentAnnotationStringValueSnapshot_INT_20260101.txt
+                    der2_sscsRefset_GPFPMemberAnnotationStringValueSnapshot_INT_20260101.txt
+        Full
+            Terminology
+                sct2_Concept_GPFPFull_INT_20260101.txt
+                sct2_Description_GPFPFull-en_INT_20260101.txt
+                sct2_StatedRelationship_GPFPFull_INT_20260101.txt
+                sct2_Relationship_GPFPFull_INT_20260101.txt
+                sct2_RelationshipConcreteValues_GPFPFull_INT_20260101.txt
+                sct2_sRefset_OWLExpressionGPFPFull_INT_20260101.txt
+                sct2_Identifier_GPFPFull_INT_20260101.txt
+                sct2_TextDefinition_GPFPFull-en_INT_20260101.txt
+            Refset
+                Content
+                    der2_Refset_GPFPSimpleFull_INT_20260101.txt
+                    der2_cRefset_GPFPAssociationFull_INT_20260101.txt
+                    der2_cRefset_GPFPAttributeValueFull_INT_20260101.txt
+                Map
+                    der2_sRefset_GPFPSimpleMapFull_INT_20260101.txt
+                    der2_iisssccRefset_GPFPExtendedMapFull_INT_20260101.txt
+                Language
+                    der2_cRefset_GPFPLanguageFull-en_INT_20260101.txt
+                Metadata
+                    der2_cciRefset_GPFPRefsetDescriptorFull_INT_20260101.txt
+                    der2_ssRefset_GPFPModuleDependencyFull_INT_20260101.txt
+                    der2_ciRefset_GPFPDescriptionTypeFull_INT_20260101.txt
+                    der2_sssssssRefset_GPFPMRCMDomainFull_INT_20260101.txt
+                    der2_cissccRefset_GPFPMRCMAttributeDomainFull_INT_20260101.txt
+                    der2_ssccRefset_GPFPMRCMAttributeRangeFull_INT_20260101.txt
+                    der2_cRefset_GPFPMRCMModuleScopeFull_INT_20260101.txt
+                    der2_scsRefset_GPFPComponentAnnotationStringValueFull_INT_20260101.txt
+                    der2_sscsRefset_GPFPMemberAnnotationStringValueFull_INT_20260101.txt
+        Readme_en_20260101.txt
+        release_package_information.json
