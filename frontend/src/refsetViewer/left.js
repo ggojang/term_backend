@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import TreeView from '@material-ui/lab/TreeView';
@@ -9,119 +9,90 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 const ROOT_ID = '900000000000455006';
 
 const useStyles = makeStyles(() => ({
-  treeView: {
-    fontSize: 'small',
-    margin: '0 0 1px 0',
-    userSelect: 'none',
-  },
-  labelBold: {
-    fontSize: '0.88em',
-    fontWeight: 'bold',
-    lineHeight: 1.8,
-    color: '#000',
-  },
-  labelNormal: {
-    fontSize: '0.88em',
-    fontWeight: 'normal',
-    lineHeight: 1.8,
-    color: '#000',
-  },
+  treeView: { fontSize: 'small', margin: '0 0 1px 0', userSelect: 'none' },
+  bold:   { fontSize: '0.88em', fontWeight: 'bold',   lineHeight: 1.8, color: '#000', cursor: 'pointer' },
+  normal: { fontSize: '0.88em', fontWeight: 'normal', lineHeight: 1.8, color: '#000', cursor: 'pointer' },
 }));
 
-// 한 노드의 자식을 가져오는 함수
 function fetchLevel(parentId) {
   return axios
     .get(`http://api.infoclinic.co/children/SNOMEDCT/${parentId}`)
-    .then(res => res.data.sort((a, b) => (a.term > b.term ? 1 : -1)));
-}
-
-// 전체 트리를 BFS로 순회하면서
-//   tree    : id → node
-//   children: parentId → [childId]
-//   boldSet : leaf이거나 leaf를 포함하는 조상 id 집합
-async function buildFullTree() {
-  const tree = {};
-  const children = {};
-  const parents = {};
-
-  // BFS 큐: 처리할 parentId 목록
-  const queue = [ROOT_ID];
-  const visited = new Set([ROOT_ID]);
-
-  while (queue.length > 0) {
-    // 한 레벨을 병렬 fetch
-    const batch = queue.splice(0, queue.length);
-    const results = await Promise.all(batch.map(pid => fetchLevel(pid)));
-
-    results.forEach((nodes, i) => {
-      const pid = batch[i];
-      children[pid] = nodes.map(n => n.conceptId);
-      nodes.forEach(n => {
-        tree[n.conceptId] = n;
-        parents[n.conceptId] = pid;
-        if (!visited.has(n.conceptId) && n.descendantCount > 0) {
-          visited.add(n.conceptId);
-          queue.push(n.conceptId);
-        }
-      });
-    });
-  }
-
-  // bold 집합: leaf(descendantCount===0) → 위로 전파
-  const boldSet = new Set();
-  Object.values(tree).forEach(node => {
-    if (node.descendantCount === 0) {
-      let cur = node.conceptId;
-      while (cur && !boldSet.has(cur)) {
-        boldSet.add(cur);
-        cur = parents[cur];
-      }
-    }
-  });
-  // 루트도 포함
-  if (boldSet.size > 0) boldSet.add(ROOT_ID);
-
-  return { tree, children, boldSet };
+    .then(res => ({ parentId, nodes: res.data.sort((a, b) => (a.term > b.term ? 1 : -1)) }));
 }
 
 export default function Left({ setRefset }) {
   const classes = useStyles();
 
-  const [tree, setTree]       = useState({});
-  const [children, setChilren] = useState({});
-  const [boldSet, setBoldSet] = useState(new Set());
+  // 단일 ref 객체에 mutable 트리 데이터를 담아 React state 업데이트 횟수를 최소화
+  const dataRef = useRef({ tree: {}, children: {}, parents: {}, boldSet: new Set() });
+
+  const [, forceUpdate] = useState(0); // 렌더 트리거용
   const [expanded, setExpanded] = useState([ROOT_ID]);
 
   useEffect(() => {
-    buildFullTree().then(({ tree, children, boldSet }) => {
-      setTree(tree);
-      setChilren(children);
-      setBoldSet(boldSet);
-    });
-  }, []);
+    const d = dataRef.current;
+    const visited = new Set([ROOT_ID]);
+    let queue = [ROOT_ID];
+
+    async function runBFS() {
+      while (queue.length > 0) {
+        const batch = queue;
+        queue = [];
+
+        const results = await Promise.all(batch.map(pid => fetchLevel(pid)));
+
+        let foundLeaf = false;
+        results.forEach(({ parentId, nodes }) => {
+          d.children[parentId] = nodes.map(n => n.conceptId);
+          nodes.forEach(n => {
+            d.tree[n.conceptId] = n;
+            d.parents[n.conceptId] = parentId;
+            if (n.descendantCount > 0 && !visited.has(n.conceptId)) {
+              visited.add(n.conceptId);
+              queue.push(n.conceptId);
+            }
+            if (n.descendantCount === 0) {
+              // leaf → 루트까지 bold 전파
+              let cur = n.conceptId;
+              while (cur && !d.boldSet.has(cur)) {
+                d.boldSet.add(cur);
+                cur = d.parents[cur];
+              }
+              if (!d.boldSet.has(ROOT_ID)) d.boldSet.add(ROOT_ID);
+              foundLeaf = true;
+            }
+          });
+        });
+
+        // 레벨 하나 처리할 때마다 즉시 리렌더 → bold가 단계적으로 나타남
+        forceUpdate(n => n + 1);
+      }
+    }
+
+    runBFS();
+  }, []); // eslint-disable-line
 
   function handleToggle(_, nodeIds) {
     setExpanded(nodeIds);
   }
 
   function renderNode(id) {
-    const node = tree[id];
+    const d = dataRef.current;
+    const node = d.tree[id];
     if (!node) return null;
     const isLeaf = node.descendantCount === 0;
-    const isBold = boldSet.has(id);
+    const isBold = d.boldSet.has(id);
 
     const label = (
       <span
-        className={isBold ? classes.labelBold : classes.labelNormal}
-        onClick={() =>
-          setRefset({ name: node.term, id: node.conceptId, desc: isLeaf ? 0 : 1 })
-        }
+        className={isBold ? classes.bold : classes.normal}
+        onClick={() => setRefset({ name: node.term, id: node.conceptId, desc: isLeaf ? 0 : 1 })}
       >
         {node.term}{!isLeaf && ` (${node.descendantCount})`}
       </span>
     );
 
-    const nodeChildren = children[id];
+    const nodeChildren = d.children[id];
     if (isLeaf || !nodeChildren || nodeChildren.length === 0) {
       return <TreeItem key={id} nodeId={id} label={label} />;
     }
@@ -132,8 +103,9 @@ export default function Left({ setRefset }) {
     );
   }
 
-  const rootChildren = children[ROOT_ID];
-  const rootBold = boldSet.has(ROOT_ID);
+  const d = dataRef.current;
+  const rootChildren = d.children[ROOT_ID];
+  const rootBold = d.boldSet.has(ROOT_ID);
 
   return (
     <TreeView
@@ -147,10 +119,8 @@ export default function Left({ setRefset }) {
         nodeId={ROOT_ID}
         label={
           <span
-            className={rootBold ? classes.labelBold : classes.labelNormal}
-            onClick={() =>
-              setRefset({ name: 'Reference Set', id: ROOT_ID, desc: 1 })
-            }
+            className={rootBold ? classes.bold : classes.normal}
+            onClick={() => setRefset({ name: 'Reference Set', id: ROOT_ID, desc: 1 })}
           >
             Reference Set (113)
           </span>
