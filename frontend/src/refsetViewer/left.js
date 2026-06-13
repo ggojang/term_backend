@@ -109,7 +109,7 @@ export default function Left(props) {
                 onClick={(e)=> {props.setRefset({name:item.term, id:item.conceptId, desc:0});} }
               >{item.term}</Typography>
             ) : (
-              <Typography className={classes.label}
+              <Typography className={classes.label} style={{ fontWeight: 'bold' }}
                 onClick={(e)=> {props.setRefset({name:item.term, id:item.conceptId, desc:1});} }
               >{item.term} ({item.descendantCount})</Typography>
             )
