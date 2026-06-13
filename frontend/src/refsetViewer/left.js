@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
   treeItemLabel: {
     fontSize: "0.9em",
   },
+  treeItemLabelBold: {
+    fontSize: "0.9em",
+    fontWeight: 'bold',
+  },
   treeItemSelected: {
     backgroundColor: "#fff",
   },
@@ -175,7 +179,7 @@ export default function Left(props) {
                       <TreeItem
                         endIcon={<RemoveIcon style={{ fontSize: 15 }}/>}
                         onLabelClick={(e)=> {e.preventDefault();} }
-                        classes={{label:classes.treeItemLabel}}
+                        classes={{label:classes.treeItemLabelBold}}
                         nodeId={props.nodeId}
                         label={props.label} />
                     )
