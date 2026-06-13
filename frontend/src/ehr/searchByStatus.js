@@ -176,7 +176,7 @@ export default function SearchByStatus(props) {
       }
 
       axios
-        .get(`/search/SNOMEDCT?${opt}`)
+        .get(`http://api.infoclinic.co/search/SNOMEDCT?${opt}`)
         .then(response => setResult(response));
     }
   }, [q, stateType]);

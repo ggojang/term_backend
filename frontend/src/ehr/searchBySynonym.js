@@ -161,7 +161,7 @@ export default function SearchBySynonym(props) {
       const opt = `q=${q}`;
 
       axios
-        .get(`/getSynonym?${opt}`)
+        .get(`http://api2.infoclinic.co/getSynonym?${opt}`)
         .then(response => setResult(response));
     }
   }, [q]);

@@ -134,7 +134,7 @@
 
 
 		function termBeautifier(term) {
-			if (!angular.isDefined(term) || term.length === 0) {
+			if (!term) {
 				return '';
 			}
 

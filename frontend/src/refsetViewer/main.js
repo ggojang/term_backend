@@ -119,12 +119,12 @@ const useStyles = makeStyles(() => ({
   },
   cellText: {
     fontSize: '0.82em',
-    color: '#212121',
+    color: '#000',
   },
   cellId: {
-    fontSize: '0.75em',
-    color: '#78909c',
-    fontFamily: 'monospace',
+    fontSize: '0.82em',
+    color: '#000',
+    fontWeight: 700,
   },
 }));
 
@@ -161,7 +161,7 @@ export default function Main({ refset }) {
 
     if (!refset?.id) return;
 
-    axios.get(`http://api.infoclinic.co/members/SNOMEDCT?refcpntid=${refset.id}`)
+    axios.get(`http://api.infoclinic.co/descriptors/SNOMEDCT/${refset.id}`)
       .then(res => {
         if (!res.data?.length) return;
 
@@ -169,7 +169,8 @@ export default function Main({ refset }) {
         // fields[2].name = attribute order (numeric string "0","1","2"...)
         const colMap = {};
         res.data.forEach(item => {
-          const label = item.fields?.[0]?.name;
+          const raw = item.fields?.[0]?.name;
+          const label = raw ? raw.split('(')[0].trim() : null;
           const orderStr = item.fields?.[2]?.name;
           const order = parseInt(orderStr, 10);
           if (label && !isNaN(order)) colMap[order] = label;
@@ -196,7 +197,7 @@ export default function Main({ refset }) {
     abortRef.current = controller;
 
     setLoading(true);
-    const qParam = inputValue.trim() || '*';
+    const qParam = q.trim() || '*';
 
     axios.get(
       `http://api.infoclinic.co/members/SNOMEDCT/${refset.id}?q=${encodeURIComponent(qParam)}&page=${page + 1}&size=${size}`,
@@ -238,10 +239,16 @@ export default function Main({ refset }) {
     return [];
   }
 
-  // 셀 표시: name 우선, 없으면 id를 회색 소자체로
   function renderCell(cell) {
-    if (cell.name) return <span className={classes.cellText}>{cell.name}</span>;
+    if (cell.id && cell.name) return (
+      <span>
+        <span className={classes.cellId}>{cell.id}</span>
+        <span style={{ color: '#90a4ae', margin: '0 4px' }}>|</span>
+        <span className={classes.cellText}>{cell.name}</span>
+      </span>
+    );
     if (cell.id)   return <span className={classes.cellId}>{cell.id}</span>;
+    if (cell.name) return <span className={classes.cellText}>{cell.name}</span>;
     return null;
   }
 

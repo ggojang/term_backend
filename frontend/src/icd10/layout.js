@@ -11,9 +11,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function Icd10Layout() {
+export default function Icd10Layout({ selectedCode, setSelectedCode }) {
   const classes = useStyles();
-  const [selectedCode, setSelectedCode] = useState('');
 
   return (
     <Grid container>

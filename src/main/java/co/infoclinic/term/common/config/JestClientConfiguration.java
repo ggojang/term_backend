@@ -10,7 +10,7 @@ import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.config.HttpClientConfig;
 
-@Configuration
+// @Configuration — disabled: Elasticsearch replaced by PostgreSQL pg_trgm
 public class JestClientConfiguration {
 		
 	private int maxTotalConnection = 75;

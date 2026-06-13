@@ -53,7 +53,6 @@ export default function Icd10Main({ code, setSelectedCode }) {
   const [entity, setEntity] = useState(null);
   const [rubric, setRubric] = useState(null);
   const [ancestors, setAncestors] = useState([]);
-  const [siblings, setSiblings] = useState([]);
   const [children, setChildren] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -61,19 +60,17 @@ export default function Icd10Main({ code, setSelectedCode }) {
     if (!code) return;
     setLoading(true);
     setEntity(null); setRubric(null);
-    setAncestors([]); setSiblings([]); setChildren([]);
+    setAncestors([]); setChildren([]);
 
     Promise.all([
       axios.get(`${BASE}/entity/ICD10/${code}`).catch(() => null),
       axios.get(`${BASE}/rubric/ICD10/${code}`).catch(() => null),
       axios.get(`${BASE}/ancestor/ICD10/${code}`).catch(() => null),
-      axios.get(`${BASE}/sibling/ICD10/${code}`).catch(() => null),
       axios.get(`${BASE}/children/ICD10/${code}`).catch(() => null),
-    ]).then(([e, r, a, s, c]) => {
+    ]).then(([e, r, a, c]) => {
       if (e) setEntity(e.data);
       if (r) setRubric(r.data);
       if (a) setAncestors(a.data || []);
-      if (s) setSiblings(s.data?.siblings || []);
       if (c) setChildren(c.data || []);
     }).finally(() => setLoading(false));
   }, [code]);
@@ -139,9 +136,7 @@ export default function Icd10Main({ code, setSelectedCode }) {
       </Box>
       <Divider className={classes.divider} />
 
-      <Grid container spacing={2}>
-        {/* Left: rubrics */}
-        <Grid item md={7}>
+      <div>
           {preferred.length > 0 && (
             <>
               <Typography className={classes.sectionTitle}>Preferred</Typography>
@@ -174,33 +169,7 @@ export default function Icd10Main({ code, setSelectedCode }) {
               ))}
             </>
           )}
-        </Grid>
-
-        {/* Right: siblings */}
-        <Grid item md={5}>
-          {siblings.length > 0 && (
-            <>
-              <Typography className={classes.sectionTitle}>Siblings</Typography>
-              {siblings.map((s) => (
-                <Box key={s.code} mb={0.5}>
-                  {s.isKcdExt && <KR_FLAG />}
-                  <span className={classes.siblingLink} onClick={() => setSelectedCode(s.code)}>
-                    {s.code}
-                  </span>
-                  <Typography component="span" className={classes.label} style={{ marginLeft: 5 }}>
-                    {s.koreanLabel || s.label}
-                  </Typography>
-                  {s.koreanLabel && s.label && (
-                    <Typography component="span" style={{ marginLeft: 5, fontSize: '0.8em', color: '#bbb' }}>
-                      {s.label}
-                    </Typography>
-                  )}
-                </Box>
-              ))}
-            </>
-          )}
-        </Grid>
-      </Grid>
+      </div>
 
       {/* Children table */}
       {children.length > 0 && (
