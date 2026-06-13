@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
  * LOINC Panel Entity
  */
 @Entity
-@Table(catalog = "loinc")
+@Table(schema = "loinc")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

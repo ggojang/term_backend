@@ -99,6 +99,21 @@ public class SnomedDataLoader {
             UmlsSynonymLoader.load(conn, synDir);
             conn.commit();
 
+            // LOINC 적재
+            // CLASS 파일: release_files/loinc_2.82_class.csv (항상 필요)
+            // 전체 LOINC 릴리즈: release_files/loinc/LOINC_2.82/ (선택)
+            String loincClassFile = Paths.get("").toAbsolutePath()
+                    .resolve("release_files/loinc_2.82_class.csv").toString();
+            String loincBaseDir = null; // 전체 릴리즈 경로 (없으면 CLASS만 적재)
+            File loincFull = Paths.get("").toAbsolutePath()
+                    .resolve("release_files/loinc/LOINC_2.82").toFile();
+            if (loincFull.exists()) {
+                loincBaseDir = loincFull.getAbsolutePath();
+            }
+            System.out.println("[INFO] LOINC 적재 시작: " + loincClassFile);
+            LoincDataLoader.load(conn, loincClassFile, loincBaseDir);
+            conn.commit();
+
             System.out.println("[INFO] 모든 데이터 적재 완료.");
         }
     }

@@ -67,7 +67,7 @@ public interface HierarchyRepository extends JpaRepository<Hierarchy, Long> , Hi
 			 "      l.TIME_ASPECT, ':', " +
 		     "      l.SYSTEM, ':', " +
 			 "      l.SCALE_TYPE, " +
-		     "      IF(LENGTH(l.METHOD_TYPE), CONCAT(':', l.METHOD_TYPE), '') " +
+		     "      CASE WHEN l.METHOD_TYPE IS NOT NULL AND l.METHOD_TYPE <> '' THEN ':' || l.METHOD_TYPE ELSE '' END " +
 			 "    ) " +
 		     "  END AS NAME, " +
 		     "  CASE WHEN l.CODE IS NULL " +
@@ -78,7 +78,7 @@ public interface HierarchyRepository extends JpaRepository<Hierarchy, Long> , Hi
 			 "      l.TIME_ASPECT, ':', " +
 		     "      l.SYSTEM, ':', " +
 			 "      l.SCALE_TYPE, " +
-		     "      IF(LENGTH(l.METHOD_TYPE), CONCAT(':', l.METHOD_TYPE), '') " +
+		     "      CASE WHEN l.METHOD_TYPE IS NOT NULL AND l.METHOD_TYPE <> '' THEN ':' || l.METHOD_TYPE ELSE '' END " +
 			 "    ) " +
 		     "  END AS PREFERRED_NAME, " +
 			 "  h.TYPE, " +
@@ -116,7 +116,7 @@ public interface HierarchyRepository extends JpaRepository<Hierarchy, Long> , Hi
 			 "      l.TIME_ASPECT, ':', " +
 		     "      l.SYSTEM, ':', " +
 			 "      l.SCALE_TYPE, " +
-		     "      IF(LENGTH(l.METHOD_TYPE), CONCAT(':', l.METHOD_TYPE), '') " +
+		     "      CASE WHEN l.METHOD_TYPE IS NOT NULL AND l.METHOD_TYPE <> '' THEN ':' || l.METHOD_TYPE ELSE '' END " +
 			 "    ) " +
 		     "  END AS NAME, " +
 		     "  CASE WHEN l.CODE IS NULL " +
@@ -127,7 +127,7 @@ public interface HierarchyRepository extends JpaRepository<Hierarchy, Long> , Hi
 			 "      l.TIME_ASPECT, ':', " +
 		     "      l.SYSTEM, ':', " +
 			 "      l.SCALE_TYPE, " +
-		     "      IF(LENGTH(l.METHOD_TYPE), CONCAT(':', l.METHOD_TYPE), '') " +
+		     "      CASE WHEN l.METHOD_TYPE IS NOT NULL AND l.METHOD_TYPE <> '' THEN ':' || l.METHOD_TYPE ELSE '' END " +
 			 "    ) " +
 		     "  END AS PREFERRED_NAME, " +
 			 "  h.TYPE, " +

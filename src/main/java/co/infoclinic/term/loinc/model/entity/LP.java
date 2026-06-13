@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
  * LOINC Part 테이블의 Entity
  */
 @Entity
-@Table(catalog = "loinc")
+@Table(schema = "loinc")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
